@@ -2,12 +2,13 @@ package com.ArturSady.todoapp.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tasks")
-public class Task  {
+public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,6 +22,7 @@ public class Task  {
     @ManyToOne
     @JoinColumn(name = "task_group_id")
     private TaskGroup group;
+
 
     public Task() {
     }
@@ -59,6 +61,7 @@ public class Task  {
     }
 
 
+
     public TaskGroup getGroup() {
         return group;
     }
@@ -74,4 +77,6 @@ public class Task  {
         group = source.group;
 
     }
+
+
 }
